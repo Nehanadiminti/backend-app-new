@@ -4,7 +4,6 @@ import session from "express-session";
 import cors from "cors";
 import dotenv from "dotenv";
 import { authenticateAdmin } from "./middleware/auth.js";
-import mongoose from "mongoose";
 import dbConnect from "./config/db.js";
 import productRouter from "./routes/productRoute.js";
 import storeRouter from "./routes/storeRoute.js";
@@ -44,7 +43,7 @@ app.use("/users", authenticateAdmin, userRouter);
 
 const startServer = async () => {
   await dbConnect();
-  app.listen(5001, () => {
+  app.listen(5000, () => {
     console.log("Server Started");
   });
 };
